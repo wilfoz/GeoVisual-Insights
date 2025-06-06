@@ -4,71 +4,77 @@
 
 @layer base {
   :root {
-    --background: 53 27% 94%; /* Light beige #F2F1EB */
-    --foreground: 240 10% 3.9%; /* Default dark foreground */
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 20%; /* Dark Gray #333333 */
 
-    --card: 53 27% 94%; /* Match background */
-    --card-foreground: 240 10% 3.9%;
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 0 0% 20%;
 
-    --popover: 53 27% 94%; /* Match background */
-    --popover-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 0 0% 20%;
 
-    --primary: 227 100% 40%; /* Soft Olive Green (actually blue) #0030cf */
-    --primary-foreground: 0 0% 98%; /* Light text on primary */
+    --primary: 208 100% 26%; /* Elecnor Blue #004B87 */
+    --primary-foreground: 0 0% 100%; /* White */
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 206 28% 95%; /* Light blue-gray #F0F4F7 */
+    --secondary-foreground: 208 100% 26%; /* Elecnor Blue */
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 206 28% 95%; /* Light blue-gray */
+    --muted-foreground: 0 0% 40%; /* Medium Gray */
 
-    --accent: 20 80% 53%; /* Dusty Gold #e65f29 */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --accent: 24 100% 50%; /* Elecnor Orange #FF6600 */
+    --accent-foreground: 0 0% 100%; /* White */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 227 100% 40%; /* Match primary for focus rings */
+    --border: 208 100% 85%; /* Lighter Elecnor Blue */
+    --input: 0 0% 98%; /* Very light gray for inputs */
+    --ring: 208 100% 45%; /* Noticeable Elecnor Blue for focus rings */
 
     --radius: 0.5rem;
 
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --chart-1: 208 100% 45%; /* Elecnor Blue variant for charts */
+    --chart-2: 24 100% 55%;  /* Elecnor Orange variant for charts */
+    --chart-3: 208 60% 60%;  /* Lighter Blue for charts */
+    --chart-4: 24 80% 70%;   /* Lighter Orange for charts */
+    --chart-5: 208 20% 50%;  /* Neutral Blue-Gray for charts */
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 208 40% 10%; /* Very dark, slightly saturated blue */
+    --foreground: 208 15% 90%; /* Off-white with a hint of blue */
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 208 35% 14%;
+    --card-foreground: 208 15% 90%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 208 35% 14%;
+    --popover-foreground: 208 15% 90%;
 
-    --primary: 227 100% 50%; /* Adjusted for dark mode */
-    --primary-foreground: 0 0% 98%;
+    --primary: 208 100% 55%; /* Brighter Elecnor Blue for dark mode */
+    --primary-foreground: 208 100% 15%; /* Very dark blue text on primary */
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 208 30% 20%; /* Darker blue-gray */
+    --secondary-foreground: 208 100% 70%; /* Lighter blue on secondary */
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 208 30% 20%;
+    --muted-foreground: 208 15% 65%; /* Medium-light blue-gray */
 
-    --accent: 20 80% 63%; /* Adjusted for dark mode */
-    --accent-foreground: 0 0% 100%;
+    --accent: 24 100% 60%; /* Brighter Elecnor Orange */
+    --accent-foreground: 24 100% 10%; /* Very dark text on accent */
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 227 100% 50%; /* Match primary for focus rings */
+    --border: 208 100% 30%; /* Muted blue border */
+    --input: 208 30% 18%; /* Dark input background */
+    --ring: 208 100% 65%; /* Bright Elecnor Blue for focus rings */
+    
+    --chart-1: 208 100% 65%;
+    --chart-2: 24 100% 65%;
+    --chart-3: 208 60% 70%;
+    --chart-4: 24 80% 75%;
+    --chart-5: 208 20% 60%;
   }
 }
 
