@@ -19,6 +19,9 @@ const AnalyzeProximityInputSchema = z.object({
   geographicalFeatures: z
     .string()
     .describe('Description of the geographical features (rivers, vegetation, etc.).'),
+ geospatialContext: z
+ .string()
+ .describe('Geospatial context for the analysis, potentially including GeoJSON or other relevant data.').optional(),
 });
 export type AnalyzeProximityInput = z.infer<typeof AnalyzeProximityInputSchema>;
 
@@ -28,6 +31,16 @@ const AnalyzeProximityOutputSchema = z.object({
     .describe(
       'An analysis of the proximity of the infrastructure to the geographical features, including potential impacts and relationships.'
     ),
+});
+
+const AnalyzeProximityOutputSchema = z.object({
+  analysis: z
+ .string()
+ .describe(
+      'An analysis of the proximity of the infrastructure to the geographical features, including potential impacts and relationships.'
+ ),
+ confidence: z.number().describe('Overall confidence level of the proximity analysis (0-1).'),
+ reasoning: z.string().describe('Overall reasoning behind the proximity analysis and confidence level, including any uncertainties.'),
 });
 export type AnalyzeProximityOutput = z.infer<typeof AnalyzeProximityOutputSchema>;
 
@@ -43,10 +56,47 @@ const analyzeProximityPrompt = ai.definePrompt({
 
 You will analyze the proximity of detected infrastructure to other geographical features and provide a contextual analysis.
 
+Geospatial Context: {{{geospatialContext}}}
 Infrastructure: {{{infrastructure}}}
 Geographical Features: {{{geographicalFeatures}}}
 
-Analyze the proximity and describe any potential impacts or relationships.`,
+<CODE_BLOCK>
+Thought:
+1. Analyze the provided descriptions of infrastructure and geographical features.
+2. Use the geospatial context to understand the spatial relationship and proximity between the infrastructure and geographical features.
+3. Assess potential impacts and relationships based on the proximity and the nature of the features.
+4. Synthesize the analysis into a clear and concise description.
+</CODE_BLOCK>
+
+Example Input:
+Geospatial Context: {"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"LineString","coordinates":[[-74,40],[-73,41]]}},{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[[[-73.5,40.5],[-73,40.5],[-73,41],[-73.5,41],[-73.5,40.5]]]}}]}
+Infrastructure: "A road"
+Geographical Features: "A forested area"
+
+Example Output:
+<CODE_BLOCK>
+Thought:
+1. Input describes a road and a forested area.
+2. Geospatial context shows a line string (likely the road) and a polygon (likely the forested area) in close proximity.
+3. The close proximity of a road to a forested area can lead to impacts like habitat fragmentation, increased runoff into the forest, and potential for pollution.
+4. The analysis should detail these potential impacts.
+</CODE_BLOCK>
+Example Output:
+<CODE_BLOCK>
+Thought:
+1. Input describes a road and a forested area.
+2. Geospatial context shows a line string (likely the road) and a polygon (likely the forested area) in close proximity.
+3. The close proximity of a road to a forested area can lead to impacts like habitat fragmentation, increased runoff into the forest, and potential for pollution.
+4. The analysis should detail these potential impacts.
+5. Confidence is high due to the clear spatial relationship shown in the geospatial context.
+</CODE_BLOCK>
+{
+ "analysis": "The road is located in close proximity to the forested area as indicated by the geospatial data. This proximity poses several potential impacts, including habitat fragmentation due to the road cutting through or bordering the forest, increased surface runoff from the road carrying pollutants into the forest ecosystem, and potential disruption to wildlife movement patterns.",
+ "confidence": 0.95,
+ "reasoning": "The geospatial context clearly shows the road and forested area in close proximity, allowing for a confident assessment of potential impacts. The visual data from the images (if available, though not explicitly included in this example input) would further support this analysis."
+}
+
+Using the provided geospatial context and your expert knowledge, analyze the proximity and describe any potential impacts or relationships based on the input and following the thought process above. Include a confidence score (0-1) for your analysis and explain your reasoning, noting any uncertainties.`,
 });
 
 const analyzeProximityFlow = ai.defineFlow(

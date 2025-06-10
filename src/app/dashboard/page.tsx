@@ -19,7 +19,7 @@ import { analyzeProximity, type AnalyzeProximityInput, type AnalyzeProximityOutp
 
 import type { KeyFrame, GeospatialData, ClimateData, AnalysisResults, LoadingStates, ErrorStates } from "@/types";
 
-import { Leaf, Layers, Waves, Building2, Route, Zap, TrainTrack, LocateFixed, MapPin, Users, Landmark, CloudRain, Wind, FileText, UploadCloud, AlertCircle, Scissors } from "lucide-react";
+import { Leaf, Layers, Waves, Building2, Route, Zap, TrainTrack, LocateFixed, MapPin, Users, Landmark, CloudRain, Wind, FileText, UploadCloud, AlertCircle, Scissors, CheckCircle2 } from "lucide-react";
 
 // Mock 1x1 transparent PNG data URI
 const MOCK_IMAGE_DATA_URI = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
